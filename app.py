@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, flash,url_for,session,redirect
 import joblib
-import warnings
 import pandas as pd
-warnings.filterwarnings('ignore')
+
 
 app = Flask(__name__)
 
@@ -150,10 +149,6 @@ def predict_heart_disease(features):
         result = "No heart disease"
     else:
         result = "Heart disease present"
-
-    for key,value in ML_models.items():
-        predicted = value.predict(df)[0]
-        print(key,predicted)
 
     return result
 
